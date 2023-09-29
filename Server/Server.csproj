@@ -112,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -121,6 +122,9 @@
     <Compile Include="DataBaseManager\IDML.cs" />
     <Compile Include="DataBaseManager\IDQL.cs" />
     <Compile Include="DataBaseManager\ISQL.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="IServices\IFelhasznaloService.cs" />
     <Compile Include="Models\Felhasznalo.cs" />
     <Compile Include="Models\Record.cs" />
