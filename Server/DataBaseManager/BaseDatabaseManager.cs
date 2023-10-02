@@ -15,7 +15,7 @@ namespace Server.DataBaseManager
             get 
             {
                 MySqlConnection connection = new MySqlConnection();
-                string connectionString = "SERVER=localhost;"+"DATABASE=webshop;"+"UID=root;"+"PASSWORD=;"+"SSL MODE=none;";
+                string connectionString = "SERVER=192.168.50.97;"+"DATABASE=webshop;"+"UID=root;"+"PASSWORD=password;"+"SSL MODE=none;";
                 connection.ConnectionString = connectionString;
                 return connection;
             }
