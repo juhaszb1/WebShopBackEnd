@@ -118,15 +118,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\FelhasznalokController.cs" />
+    <Compile Include="Controllers\JogosultsagController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="DataBaseManager\BaseDatabaseManager.cs" />
     <Compile Include="DataBaseManager\IDML.cs" />
     <Compile Include="DataBaseManager\IDQL.cs" />
     <Compile Include="DataBaseManager\ISQL.cs" />
+    <Compile Include="DTOs\FelhasznaloEmailKuldes.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IServices\IFelhasznaloService.cs" />
+    <Compile Include="IServices\IJogosultsagService.cs" />
+    <Compile Include="IServices\ILoginService.cs" />
     <Compile Include="Models\Felhasznalo.cs" />
+    <Compile Include="Models\Jogosultsag.cs" />
     <Compile Include="Models\Record.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>

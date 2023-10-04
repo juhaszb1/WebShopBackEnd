@@ -3,76 +3,64 @@ using Server.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel.Web;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Services;
-using Server.DTOs;
 
 namespace Server.IServices
 {
     [ServiceContract]
-    public interface IFelhasznaloService
+    public interface IJogosultsagService
     {
         [OperationContract]
-        List<Felhasznalo> FelhasznaloLista_CS();
+
+        List<Jogosultsag> JogosultsagLista_CS();
 
         [OperationContract]
         [WebInvoke(Method = "GET",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
-            UriTemplate = "/FelhasznaloLista/")]
+            UriTemplate = "/JogosultsagLista/")]
 
-        List<Felhasznalo> FelhasznaloLista_Web();
+        List<Jogosultsag> JogosultsagLista_Web();
 
         [OperationContract]
-        string FelhasznaloHozzaAd_CS(Felhasznalo felhasznalo);
+        string JogosultsagHozzaAd_CS(Jogosultsag jogosultsag);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
-            UriTemplate = "/FelhasznaloHozzaAd/")]
+            UriTemplate = "/JogosultsagHozzaAd/")]
 
-        string FelhasznaloHozzaAd_Web(Felhasznalo felhasznalo);
+        string JogosultsagHozzaAd_Web(Jogosultsag jogosultsag);
 
         [OperationContract]
-        string FelhasznaloModosit_CS(Felhasznalo felhasznalo);
+        string JogosultsagModosit_CS(Jogosultsag jogosultsag);
 
         [OperationContract]
         [WebInvoke(Method = "PUT",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
-            UriTemplate = "/FelhasznaloModosit/")]
+            UriTemplate = "/JogosultsagModosit/")]
 
-        string FelhasznaloModosit_Web(Felhasznalo felhasznalo);
+        string JogosultsagModosit_Web(Jogosultsag jogosultsag);
 
         [OperationContract]
-        string FelhasznaloTorles_CS(int id);
+        string JogosultsagTorles_CS(int id);
 
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
-            UriTemplate = "/FelhasznaloTorles?id={id}")]
+            UriTemplate = "/JogosultsagTorles?id={id}")]
 
-        string FelhasznaloTorles_Web(int id);
-
-        [OperationContract]
-        List<FelhasznaloEmailKuldes> FelhasznaloEmailCimek_CS();
-
-        [OperationContract]
-        [WebInvoke(Method = "GET",
-            RequestFormat = WebMessageFormat.Json,
-            ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.WrappedRequest,
-            UriTemplate = "/FelhasznaloEmailCimek/")]
-
-        List<FelhasznaloEmailKuldes> FelhasznaloEmailCimek_Web();
+        string JogosultsagTorles_Web(int id);
     }
 }
