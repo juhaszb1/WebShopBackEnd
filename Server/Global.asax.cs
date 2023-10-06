@@ -7,7 +7,7 @@ using System.Web.SessionState;
 
 namespace Server
 {
-    public class Global : System.Web.HttpApplication
+    public class Global1 : System.Web.HttpApplication
     {
         protected void Application_BeginRequest(object sender, EventArgs e)
         {

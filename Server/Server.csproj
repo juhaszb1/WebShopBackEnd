@@ -133,6 +133,7 @@
     <Compile Include="IServices\ILoginService.cs" />
     <Compile Include="Models\Felhasznalo.cs" />
     <Compile Include="Models\Jogosultsag.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Record.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
