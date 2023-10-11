@@ -117,14 +117,14 @@ namespace Server
             return JogosultsagTorles_CS(id);
         }
 
-        public List<FelhasznaloEmailKuldes> FelhasznaloEmailCimek_CS()
+        public List<FelhasznaloEmailKuldesDTO> FelhasznaloEmailCimek_CS()
         {
-            List<FelhasznaloEmailKuldes> lista = new List<FelhasznaloEmailKuldes>();
+            List<FelhasznaloEmailKuldesDTO> lista = new List<FelhasznaloEmailKuldesDTO>();
             DataBaseManager.ISQL felhasznaloController = new Controllers.FelhasznalokController();
             List<Record> records = felhasznaloController.Select();
             foreach (Record record in records)
             {
-                FelhasznaloEmailKuldes egyRecord = new FelhasznaloEmailKuldes();
+                FelhasznaloEmailKuldesDTO egyRecord = new FelhasznaloEmailKuldesDTO();
                 egyRecord.Email = (record as Felhasznalo).Email;
                 egyRecord.Nev = (record as Felhasznalo).Nev;
                 lista.Add(egyRecord);
@@ -132,7 +132,7 @@ namespace Server
             return lista;
         }
 
-        public List<FelhasznaloEmailKuldes> FelhasznaloEmailCimek_Web()
+        public List<FelhasznaloEmailKuldesDTO> FelhasznaloEmailCimek_Web()
         {
             return FelhasznaloEmailCimek_CS();
         }
@@ -148,13 +148,13 @@ namespace Server
             return GetSalt_CS(LoginNev);
         }
 
-        public string Login_CS(Login login)
+        public FelhasznaloKezeloDTO Login_CS(Login login)
         {
             Controllers.LoginController loginController = new Controllers.LoginController();
             return loginController.Login(login);
         }
 
-        public string Login_Web(Login login)
+        public FelhasznaloKezeloDTO Login_Web(Login login)
         {
             return Login_CS(login);
         }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Server.DTOs
 {
-    public class FelhasznaloEmailKuldes
+    public class FelhasznaloEmailKuldesDTO
     {
         public string Email { get; set; }
         public string Nev { get; set; }

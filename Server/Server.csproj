@@ -124,7 +124,8 @@
     <Compile Include="DataBaseManager\IDML.cs" />
     <Compile Include="DataBaseManager\IDQL.cs" />
     <Compile Include="DataBaseManager\ISQL.cs" />
-    <Compile Include="DTOs\FelhasznaloEmailKuldes.cs" />
+    <Compile Include="DTOs\FelhasznaloEmailKuldesDTO.cs" />
+    <Compile Include="DTOs\FelhasznaloKezeloDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Server.DataBaseManager;
+using Server.DTOs;
 using Server.Models;
 using System;
 using System.Collections.Generic;
@@ -38,18 +39,19 @@ namespace Server.Controllers
             return salt;
         }
 
-        public string Login(Login login)
+        public FelhasznaloKezeloDTO Login(Login login)
         {
-            string uId = "uid";
+            string uId = "";
+            FelhasznaloKezeloDTO felhasznaloKezeloDTO = new FelhasznaloKezeloDTO();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = "SELECT * FROM felhasznalok WHERE LoginNev = @LoginNev";
             MySqlConnection connection = BaseDatabaseManager.connection;
+            cmd.Connection = connection;
+            cmd.Parameters.Add(new MySqlParameter("@LoginNev", MySqlDbType.Int32)).Value = login.LoginNev;
             try
             {
-                cmd.Parameters.Add(new MySqlParameter("@LoginNev", MySqlDbType.Int32)).Value = login.LoginNev;
                 connection.Open();
-                cmd.Connection = connection;
                 MySqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
                 string hash = reader.GetString("HASH");
@@ -83,6 +85,9 @@ namespace Server.Controllers
                     egyFelhasznalo.Email = reader.GetString("Email");
                     egyFelhasznalo.ProfilKep = reader.GetString("ProfilKep");
                     Service1.BejelentkezettFelhasznalok.Add(uId, egyFelhasznalo);
+                    felhasznaloKezeloDTO.Uid = uId;
+                    felhasznaloKezeloDTO.Name = egyFelhasznalo.Nev;
+                    felhasznaloKezeloDTO.Jog = egyFelhasznalo.Jog;
                 }
                 else
                 {
@@ -91,13 +96,16 @@ namespace Server.Controllers
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                felhasznaloKezeloDTO.Uid = "";
+                felhasznaloKezeloDTO.Name = ex.Message;
+                felhasznaloKezeloDTO.Jog = 0;
+                return felhasznaloKezeloDTO;
             }
             finally
             {
                 connection.Close();
             }
-            return uId;
+            return felhasznaloKezeloDTO;
         }
     }
 }

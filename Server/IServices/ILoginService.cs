@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using Server.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace Server.IServices
         string GetSalt_Web(string LoginNev);
 
         [OperationContract]
-        string Login_CS(Server.Models.Login login);
+        FelhasznaloKezeloDTO Login_CS(Server.Models.Login login);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
@@ -36,6 +37,6 @@ namespace Server.IServices
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             UriTemplate = "/Login")]
 
-        string Login_Web(Server.Models.Login login);
+        FelhasznaloKezeloDTO Login_Web(Server.Models.Login login);
     }
 }

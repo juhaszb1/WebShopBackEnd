@@ -64,7 +64,7 @@ namespace Server.IServices
         string FelhasznaloTorles_Web(int id);
 
         [OperationContract]
-        List<FelhasznaloEmailKuldes> FelhasznaloEmailCimek_CS();
+        List<FelhasznaloEmailKuldesDTO> FelhasznaloEmailCimek_CS();
 
         [OperationContract]
         [WebInvoke(Method = "GET",
@@ -73,6 +73,6 @@ namespace Server.IServices
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             UriTemplate = "/FelhasznaloEmailCimek/")]
 
-        List<FelhasznaloEmailKuldes> FelhasznaloEmailCimek_Web();
+        List<FelhasznaloEmailKuldesDTO> FelhasznaloEmailCimek_Web();
     }
 }
